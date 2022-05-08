@@ -64,6 +64,7 @@ CHIP ALU {
         Mux16 (a=w5, b=notw5, sel=no, out=out, out[0..7]=out0to7, out[8..15]=out8to15, out[15]=ng); 
 
         // if (out == 0) set zr = 1
+        // check whether all bit is 0 or not
         Or8Way (in=out0to7, out=or0to7);
         Or8Way (in=out8to15, out=or8to15);
         Or (a=or0to7, b=or8to15, out=or0to16);
