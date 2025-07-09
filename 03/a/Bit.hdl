@@ -14,6 +14,10 @@ CHIP Bit {
     OUT out;
 
     PARTS:
+        // if load=0 then out outInternal
+        // else if load=1 then out in
         Mux(a=outInternal, b=in, sel=load, out=muxOut);
+
+        // outInternal is flowing to a of Mux.
         DFF(in=muxOut, out=out ,out=outInternal);
 }
